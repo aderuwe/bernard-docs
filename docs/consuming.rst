@@ -1,3 +1,6 @@
+.. index::
+    single: Consuming Messages
+
 Consuming Messages
 ==================
 
