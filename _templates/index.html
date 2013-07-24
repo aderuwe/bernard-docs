@@ -6,15 +6,7 @@
 <html>
     <head>
         <title>{{ shorttitle }}{{ titlesuffix }}</title>
-        <style>
-        p, a{font-size:26px;color:#4d280b}
-        p{margin:45px 0;padding:0;overflow:hidden;}
-        a{text-decoration:none;font-size:26px;font-weight:bold;line-height:30px;}
-        a:hover{background:#ffd700}
-        .content{margin:0 auto;width:700px;text-align:center;padding-top:100px;}
-        .button{padding:10px 15px;background:#fff000;margin:0 5px}
-        .logo{background:url('{{ pathto('_static/logo.png', 1) }}');width:450px;height:285px;padding:0;margin:10px auto;text-indent:-1000px;overflow:hidden;}
-        </style>
+        <link rel="stylesheet" href="{{ pathto('_static/bernard.css', 1) }}" />
     </head>
 
     <body id="frontpage">
