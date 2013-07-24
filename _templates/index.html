@@ -1,0 +1,33 @@
+{%- set titlesuffix = "" -%}
+{%- if not embedded and docstitle -%}
+    {%- set titlesuffix = " &mdash; "|safe + docstitle|e -%}
+{%- endif -%}
+<!doctype html>
+<html>
+    <head>
+        <title>{{ shorttitle }}{{ titlesuffix }}</title>
+        <style>
+        p, a{font-size:24px;color:#4d280b}
+        a{text-decoration:none;font-size:20px;font-weight:bold}
+        a:hover{background:#ffd700}
+        .content{margin:0 auto;width:600px;text-align:center;padding-top:100px;}
+        .button{padding:10px 15px;background:#fff000;margin:0 10px}
+        .logo{background:url('{{ pathto('_static/logo.png', 1) }}');width:450px;height:285px;padding:0;margin:10px auto;text-indent:-1000px;overflow:hidden;}
+        </style>
+    </head>
+
+    <body id="frontpage">
+        <div class="content">
+            <h1 class="logo">Bernard</h1>
+
+            <p>Helps <strong>you</strong> write distributed and service orientated
+            systems by offloading work to the background via message queues.</p>
+
+            <div>
+                <a class="button" href="{{ pathto('docs/getting-started') }}">Getting Started</a>
+                <a class="button" href="{{ pathto('docs/index') }}">Documentation</a>
+                <a class="button" href="http://github.com/bernardphp">GitHub</a>
+            </div>
+        </div>
+    </body>
+</html>
