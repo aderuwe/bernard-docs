@@ -1,3 +1,4 @@
+@import url("basic.css");
 @import url("bootstrap.min.css");
 @import url("configurationblock.css");
 
@@ -12,3 +13,5 @@ body{color:#4d280b}
 .masthead .lead{margin:35px 0;}
 
 .toctree-l1.current{background:lightblue}
+.admonition.warning{background:pink}
+.admonition.note{background:lightyellow}
