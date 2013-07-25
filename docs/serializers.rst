@@ -1,6 +1,3 @@
-.. index::
-    single: Serializers
-
 Serializers
 ===========
 

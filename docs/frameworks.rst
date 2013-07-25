@@ -1,6 +1,3 @@
-.. index::
-    single: Framework Integration
-
 Framework Integration
 =====================
 

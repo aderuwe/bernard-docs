@@ -1,11 +1,12 @@
+@import url("default.css");
 @import url("bootstrap.min.css");
-
 
 body{color:#4d280b}
 
 .lead{font-size:30px;}
 .btn{font-size:21px;background:#fff000;margin:0 5px;color:#4d280b}
 .btn:hover{color:#4d280b;background:#ffd700}
+.btn:visited{color:#4d280b;}
 .masthead{text-align:center;padding:50px 150px 0;}
 .masthead h1{background:url('logo.png');width:450px;height:285px;text-indent:-99999px;margin:0 auto;}
 .masthead .lead{margin:35px 0;}
