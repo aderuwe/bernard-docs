@@ -9,3 +9,5 @@ body{color:#4d280b}
 .masthead{text-align:center;padding:50px 150px 0;}
 .masthead h1{background:url('logo.png');width:450px;height:285px;text-indent:-99999px;margin:0 auto;}
 .masthead .lead{margin:35px 0;}
+
+.toctree-l1.current{background:lightblue}
