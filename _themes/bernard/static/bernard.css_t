@@ -1,4 +1,5 @@
 @import url("bootstrap.min.css");
+@import url("configurationblock.css");
 
 body{color:#4d280b}
 
