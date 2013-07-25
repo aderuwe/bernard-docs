@@ -147,6 +147,18 @@
 {%- block content %}
     {%- block sidebar1 %} {# possible location for sidebar #} {% endblock %}
 
+    <div class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="{{ pathto('index') }}">Bernard</a>
+
+            <ul class="nav navbar-nav">
+                <li><a href="{{ pathto('docs/getting-started') }}">Getting Started</a></li>
+                <li><a href="{{ pathto('docs/index') }}">Documentation</a></li>
+                <li><a href="http://github.com/bernardphp">GitHub</a></li>
+            </ul>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row">
             {%- block sidebar2 %}{{ sidebar() }}{% endblock %}
