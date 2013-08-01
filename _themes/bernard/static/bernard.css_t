@@ -16,6 +16,6 @@ body{color:#4d280b}
 .admonition.warning{background:pink}
 .admonition.note{background:lightyellow}
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .masthead h1{background:url('logo@2x.png');background-size:450px 285px;}
 }
