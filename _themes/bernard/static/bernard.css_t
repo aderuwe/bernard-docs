@@ -16,9 +16,14 @@ body{color:#4d280b}
 .admonition.warning{background:pink}
 .admonition.note{background:lightyellow}
 
+.nav .btn{margin-top:20px;}
+#logo-small{width:111px;height:70px;display:block;margin:10px 0 -10px 0;background:url('logo_small.png');text-indent:2000px;}
+
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .masthead h1{background:url('logo@2x.png');background-size:450px 285px;}
+    #logo-small{background:url('logo_small@2x.png');background-size:111px 70px}
 }
+
 
 #forkongithub a{background:#fff000;color:#4d280b;text-decoration:none;text-align:center;font-weight:bold;padding:5px 40px;position:relative;transition:0.5s;}
 #forkongithub a:hover{background:#ffd700;color:#4d280b;}

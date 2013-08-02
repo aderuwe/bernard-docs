@@ -147,15 +147,19 @@
 {%- block content %}
     {%- block sidebar1 %} {# possible location for sidebar #} {% endblock %}
 
-    <div class="navbar">
-        <div class="container">
-            <a class="navbar-brand" href="{{ pathto('index') }}">Bernard</a>
+    <div class="container nav">
+        <div class="row">
+            <div class="col-lg-12">
+                <a class="pull-left" href="{{ pathto('index') }}" id="logo-small">Bernard</a>
 
-            <ul class="nav navbar-nav">
-                <li><a href="{{ pathto('docs/getting-started') }}">Getting Started</a></li>
-                <li><a href="{{ pathto('docs/index') }}">Documentation</a></li>
-            </ul>
+                <div class="pull-right">
+                    <a href="{{ pathto('docs/getting-started') }}" class="btn">Getting Started</a>
+                    <a href="{{ pathto('docs/index') }}" class="btn">Documentation</a>
+                </div>
+            </div>
         </div>
+
+        <hr />
     </div>
 
     <div class="container">
