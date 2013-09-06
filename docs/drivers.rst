@@ -169,16 +169,17 @@ correct service. An example of this:
 
     namespace Acme\Controller;
 
+    use Bernard\Consumer
     use Bernard\Serializer;
-    use Bernard\ServiceResolver;
-    use Bernard\ServiceResolver\Invoker;
+    use Bernard\QueueFactory;
     use Symfony\Component\HttpFoundation\Request;
 
     class QueueController
     {
-        public function __construct(ServiceResolver $resolver, Serializer $serializer)
+        public function __construct(Consumer $consumer, QueueFactory $queues)
         {
-            $this->resolver = $resolver;
+            $this->resolver = $consumer;
+            $this->queues = $queues;
             $this->serializer = $serializer;
         }
 
@@ -186,8 +187,9 @@ correct service. An example of this:
         {
             $envelope = $this->serializer->deserialize($request->getContent());
 
-            $invoker = new Invoker($this->resolver->resolve($envelope);
-            $invoker->invoke($envelope));
+            // This will invoke the right service and middleware, and lastly it will acknowledge
+            / the message.
+            $this->consumer->invoke($envelope, $queues->create($envelope->getMessage()->getQueue()));
         }
     }
 
@@ -277,24 +279,26 @@ actual dispatching of messages you can do something like this:
 
     namespace Acme\Controller;
 
+    use Bernard\Consumer
     use Bernard\Serializer;
-    use Bernard\ServiceResolver;
-    use Bernard\ServiceResolver\Invoker;
+    use Bernard\QueueFactory;
     use Symfony\Component\HttpFoundation\Request;
 
     class QueueController
     {
-        public function __construct(ServiceResolver $resolver, Serializer $serializer)
+        public function __construct(Consumer $consumer, QueueFactory $queues)
         {
-            $this->resolver = $resolver;
+            $this->resolver = $consumer;
+            $this->queues = $queues;
             $this->serializer = $serializer;
         }
 
         public function queueAction(Request $request)
         {
-            $envelope = $this->serializer->deserialize($request->request->get('message'));
+            $envelope = $this->serializer->deserialize($request->getContent());
 
-            $invoker = new Invoker($this->resolver->resolve($envelope);
-            $invoker->invoke($envelope));
+            // This will invoke the right service and middleware, and lastly it will acknowledge
+            / the message.
+            $this->consumer->invoke($envelope, $queues->create($envelope->getMessage()->getQueue()));
         }
     }
