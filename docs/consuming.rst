@@ -5,10 +5,10 @@ A single message represents a job that needs to be performed, and as described
 earlier, a message's name is used to determine which service object should
 receive that message.
 
-A service object can be any object that has a method corresponding to the message
-name prefixed with ``on``. So ``new DefaultMessage('SendNewsletter')`` will trigger a
-call to ``$serviceObject->onSendNewsletter($message)``. For the system to know which service
-object should handle which messages, your are required to register them first.
+A service object can be any object that has a method corresponding to the name of the
+message with the first letter lower cased. So ``new DefaultMessage('SendNewsletter')`` will trigger a
+call to ``$serviceObject->sendNewsletter($message)``. For the system to know which service
+object should handle which messages, you are required to register them first.
 
 .. code-block:: php
 
@@ -19,7 +19,7 @@ object should handle which messages, your are required to register them first.
 
     // .. create driver and a queuefactory
     // NewsletterMessageHandler is a pseudo service object that responds to
-    // onSendNewsletter.
+    // sendNewsletter.
 
     $serviceResolver = new ObjectResolver;
     $serviceResolver->register('SendNewsletter', new NewsletterMessageHandler);
@@ -35,13 +35,12 @@ object should handle which messages, your are required to register them first.
     // $serviceResolver = new \Bernard\Symfony\ContainerAwareServiceResolver($container);
     // $serviceResolver->register('SendNewsletter', 'my.service.id');
 
-    // Create a Consumer and start the loop. The second argument is optional and
-    // is the queue failed messages should be added to. The last argument (array) is also optional
-    // and the defaults can be seen in the Consumer class.
+    // Create a Consumer and start the loop. The second argument is optional and is an array
+    // of options. Currently only ``max-runtime`` is supported which specifies the max runtime
+    // in seconds.
     $consumer = new Consumer($serviceResolver);
-    $consumer->consume($queueFactory->create('send-newsletter'), $queueFactory->create('failed'), array(
+    $consumer->consume($queueFactory->create('send-newsletter'), array(
         'max-runtime' => 900,
-        'max-retries' => 5,
     ));
 
 Commandline Interface

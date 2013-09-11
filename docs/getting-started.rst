@@ -17,12 +17,20 @@ before use.
 Examples
 --------
 
-In the ``example`` directory there are two examples of running Bernard. ``producer.php`` will
-connect to redis on localhost and produce ``EchoTime`` messages. ``consumer.php`` will consume
-theese and print the timestamp.
+In the ``example`` directory there are numerous examples of running Bernard. The files are named
+after the driver they are using. Each file take the argument ``consume`` or ``produce``.
+To use the ``Predis`` example:
 
-``in_memory.php`` will produce 20 ``EchoTime`` messages and consume them right they
-have been sent. It uses ``SplQueue`` and does not need a redis backend.
+.. code-block:: sh
+
+$ php ./example/predis.php consume
+$ php ./example/predis.php produce
+
+And would will proberly see a lot of output showing an error. This is because the ``ErrorLogMiddleware``
+is registered and shows exceptions happening. In this case the exception is happening because everytime
+a call to ``rand()`` returns 7 the service throws an example.
+
+This directory is a good source for setting stuff up and can be used as a go to guide.
 
 Producing Messages
 ------------------
