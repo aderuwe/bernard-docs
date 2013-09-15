@@ -23,8 +23,8 @@ To use the ``Predis`` example:
 
 .. code-block:: sh
 
-$ php ./example/predis.php consume
-$ php ./example/predis.php produce
+    $ php ./example/predis.php consume
+    $ php ./example/predis.php produce
 
 And would will proberly see a lot of output showing an error. This is because the ``ErrorLogMiddleware``
 is registered and shows exceptions happening. In this case the exception is happening because everytime
