@@ -29,7 +29,7 @@ For instance, to use the ``Predis`` use:
     $ php ./example/predis.php consume
     $ php ./example/predis.php produce
 
-And would will properbly see a lot of output showing an error. This is because
+And you would see properly a lot of output showing an error. This is because
 the ``ErrorLogMiddleware`` is registered and shows all exceptions. In this case,
 the exception is caused by ``rand()`` always returning 7.
 
