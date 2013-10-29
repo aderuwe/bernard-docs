@@ -178,9 +178,13 @@ correct service. An example of this:
 
     class QueueController
     {
-        public function __construct(Consumer $consumer, QueueFactory $queues)
+        protected $consumer;
+        protected $queues;
+        protected $serializer;
+
+        public function __construct(Consumer $consumer, QueueFactory $queues, Serializer $serializer)
         {
-            $this->resolver = $consumer;
+            $this->consumer = $consumer;
             $this->queues = $queues;
             $this->serializer = $serializer;
         }
@@ -191,7 +195,7 @@ correct service. An example of this:
 
             // This will invoke the right service and middleware, and lastly it will acknowledge
             / the message.
-            $this->consumer->invoke($envelope, $queues->create($envelope->getMessage()->getQueue()));
+            $this->consumer->invoke($envelope, $this->queues->create($envelope->getMessage()->getQueue()));
         }
     }
 
@@ -294,9 +298,13 @@ something like this:
 
     class QueueController
     {
-        public function __construct(Consumer $consumer, QueueFactory $queues)
+        protected $consumer;
+        protected $queues;
+        protected $serializer;
+
+        public function __construct(Consumer $consumer, QueueFactory $queues, Serializer $serializer)
         {
-            $this->resolver = $consumer;
+            $this->consumer = $consumer;
             $this->queues = $queues;
             $this->serializer = $serializer;
         }
@@ -307,6 +315,7 @@ something like this:
 
             // This will invoke the right service and middleware, and lastly it will acknowledge
             / the message.
-            $this->consumer->invoke($envelope, $queues->create($envelope->getMessage()->getQueue()));
+            $this->consumer->invoke($envelope, $this->queues->create($envelope->getMessage()->getQueue()));
         }
     }
+
