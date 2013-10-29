@@ -76,7 +76,7 @@ the message popped from the queue.
 
     To use Doctrine DBAL remember to setup the correct schema.
 
-Use one of the following methods for creating your table.
+Use the following method for creating the needed bernard tables.
 
 .. code-block:: php
 
@@ -92,7 +92,11 @@ Use one of the following methods for creating your table.
 
     $sql = $schema->toSql($connection->getDatabasePlatform());
 
-or:
+    foreach ($sql as $query) {
+        $connection->exec($query);
+    }
+
+And here is the setup of the driver for doctrine dbal:
 
 .. code-block:: json
 
